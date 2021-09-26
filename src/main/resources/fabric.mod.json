@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "crowning-glory",
+  "version": "${version}",
+  "name": "Crowning Glory",
+  "description": "Adorn yourself with magical crowns that you found throughout your travels.",
+  "authors": [
+    "chronosacaria"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/crowning-glory/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "chronosacaria.crowningglory.client.CrowningGloryClient"
+    ],
+    "main": [
+      "chronosacaria.crowningglory.CrowningGlory"
+    ]
+  },
+  "mixins": [
+    "crowning-glory.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.7",
+    "fabric": "*",
+    "minecraft": "1.17.*"
+  }
+}
