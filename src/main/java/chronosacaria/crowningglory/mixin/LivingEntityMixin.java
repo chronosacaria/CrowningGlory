@@ -16,6 +16,7 @@ public class LivingEntityMixin {
 
         PlayerEntity playerEntity = (PlayerEntity) (Object) this;
 
-        CrownEffects.applyFlowerWalker(playerEntity);
+        CrownEffects.applyFlowerWalkerEffect(playerEntity);
+        CrownEffects.applyFluidWalkingEffect(playerEntity);
     }
 }
