@@ -18,5 +18,6 @@ public class LivingEntityMixin {
 
         CrownEffects.applyFlowerWalkerEffect(playerEntity);
         CrownEffects.applyFluidWalkingEffect(playerEntity);
+        CrownEffects.applyWreathGrowthEffect(playerEntity);
     }
 }
