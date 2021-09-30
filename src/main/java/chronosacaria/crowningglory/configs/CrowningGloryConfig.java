@@ -23,16 +23,16 @@ public class CrowningGloryConfig implements ConfigData {
     }
 
     public EnumMap<Crowns, CrownStats> crownStats = new EnumMap<>(Crowns.class);
+    public EnumMap<Crowns, Boolean> enableCrownSpawning = new EnumMap<>(Crowns.class);
+    public EnumMap<Crowns, Float> crownsSpawnRate = new EnumMap<>(Crowns.class);
 
     // convenience methods:
     protected CrownStats crownProtection(int value, Crowns crowns){
         return crownStats.get(crowns).crownProtection(value);
     }
-
     protected CrownStats crownDurabilityMultiplier(int value, Crowns crowns) {
         return crownStats.get(crowns).crownDurabilityMultiplier(value);
     }
-
     protected CrownStats setKnockbackResistance(float value, Crowns crowns) {
         return crownStats.get(crowns).crownKnockbackRes(value);
     }
@@ -47,7 +47,7 @@ public class CrowningGloryConfig implements ConfigData {
             CrownStats stats = new CrownStats();
             stats.protection = new EnumMap<>(EquipmentSlot.class);
             for (EquipmentSlot slot : EnumSet.of(EquipmentSlot.HEAD)) {
-                stats.protection.put(slot, 2);
+                stats.protection.put(slot, 0);
             }
 
             this.crownStats.put(crowns, stats);
@@ -57,5 +57,13 @@ public class CrowningGloryConfig implements ConfigData {
         crownProtection(2, FLORAL).crownDurabilityMultiplier(5);
         crownProtection(3, FROST).crownDurabilityMultiplier(15);
         crownProtection(2, WREATH).crownDurabilityMultiplier(5);
+
+        for (Crowns crowns : Crowns.values()){
+            enableCrownSpawning.put(crowns, true);
+        }
+
+        for (Crowns crowns : Crowns.values()){
+            crownsSpawnRate.put(crowns, 0.25f);
+        }
     }
 }

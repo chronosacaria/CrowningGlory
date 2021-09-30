@@ -1,0 +1,43 @@
+{
+  "itemGroup.crowningglory.crowns":                         "Crowning Glory",
+
+  "item.crowningglory.diamond_crown":                       "Diamond Coronet",
+  "item.crowningglory.diamond_crown.tooltip_1":             "This coronet, made of solid diamond,",
+  "item.crowningglory.diamond_crown.tooltip_2":             "is stronger than it might seem.",
+
+  "item.crowningglory.floral_crown":                        "Floral Crown",
+  "item.crowningglory.floral_crown.tooltip_1":              "You can feel the call of nature while",
+  "item.crowningglory.floral_crown.tooltip_2":              "wearing this Floral Crown.",
+  "item.crowningglory.floral_crown.tooltip_3":              " ",
+  "item.crowningglory.floral_crown.tooltip_4":              "Hold [SHIFT] for more information.",
+  "item.crowningglory.floral_crown.moreinfo.tooltip_1":     "Sneaking will prompt flowers to grow",
+  "item.crowningglory.floral_crown.moreinfo.tooltip_2":     "around you in a circle. These flowers",
+  "item.crowningglory.floral_crown.moreinfo.tooltip_3":     "are random each time you sneak.",
+  "item.crowningglory.floral_crown.moreinfo.tooltip_4":     " ",
+
+
+  "item.crowningglory.frost_crown":                         "Frost Circlet",
+  "item.crowningglory.frost_crown.tooltip_1":               "The chill of this circlet gives you",
+  "item.crowningglory.frost_crown.tooltip_2":               "a certain confidence. You're sure that",
+  "item.crowningglory.frost_crown.tooltip_3":               "you could even walk on water.",
+  "item.crowningglory.frost_crown.tooltip_4":               " ",
+  "item.crowningglory.frost_crown.tooltip_5":               "Hold [SHIFT] for more information.",
+  "item.crowningglory.frost_crown.moreinfo.tooltip_1":      "Wearing this circlet allows you to",
+  "item.crowningglory.frost_crown.moreinfo.tooltip_2":      "walk across water and lava turning",
+  "item.crowningglory.frost_crown.moreinfo.tooltip_3":      "them into ice and crying obsidian",
+  "item.crowningglory.frost_crown.moreinfo.tooltip_4":      "respectively.",
+  "item.crowningglory.frost_crown.moreinfo.tooltip_5":      " ",
+
+  "item.crowningglory.wreath_crown":                        "Wreath Crown",
+  "item.crowningglory.wreath_crown.tooltip_1":              "While wearing this crown you are certain",
+  "item.crowningglory.wreath_crown.tooltip_2":              "that you are gifted with a verdant mind.",
+  "item.crowningglory.wreath_crown.tooltip_3":              "No plant can resist growing for you.",
+  "item.crowningglory.wreath_crown.tooltip_4":              " ",
+  "item.crowningglory.wreath_crown.tooltip_5":              "Hold [SHIFT] for more information.",
+  "item.crowningglory.wreath_crown.moreinfo.tooltip_1":     "While wearing this circlet you can",
+  "item.crowningglory.wreath_crown.moreinfo.tooltip_2":     "sneak to make all growable plants",
+  "item.crowningglory.wreath_crown.moreinfo.tooltip_3":     "grow. This includes crops, saplings,",
+  "item.crowningglory.wreath_crown.moreinfo.tooltip_4":     "flowers, and much more.",
+  "item.crowningglory.wreath_crown.moreinfo.tooltip_5":     " "
+
+}

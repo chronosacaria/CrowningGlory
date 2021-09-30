@@ -5,6 +5,10 @@ import chronosacaria.crowningglory.configs.CrownStats;
 import chronosacaria.crowningglory.configs.CrowningGloryConfig;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.I18n;
+import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -12,12 +16,19 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Rarity;
+import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.UUID;
 
 public class CrownItem extends ArmorItem {
-    private static final UUID [] ARMOR_MODIFIER = new UUID[] {
+
+    protected static final int MAX_TOOLTIPS = 5;
+
+    protected static final UUID [] ARMOR_MODIFIER = new UUID[] {
             UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"),
             UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"),
             UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"),
@@ -56,6 +67,30 @@ public class CrownItem extends ArmorItem {
     @Override
     public Rarity getRarity(ItemStack itemStack){
         return crown.getRarity();
+    }
+
+    @Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext){
+        super.appendTooltip(itemStack, world, tooltip, tooltipContext);
+
+        for (int i = 1; i <= MAX_TOOLTIPS; i++) {
+            String crownId;
+
+            crownId = crown.getCrownName();
+
+            String translationKey = String.format("item.crowningglory.%s_crown.tooltip_%d", crownId, i);
+
+            String moreInfoTranslationKey = String.format("item.crowningglory.%s_crown.moreinfo.tooltip_%d", crownId, i);
+
+            if (I18n.hasTranslation(translationKey)) {
+                tooltip.add(new TranslatableText(translationKey));
+            }
+
+            if (I18n.hasTranslation(moreInfoTranslationKey) && InputUtil.isKeyPressed(MinecraftClient.getInstance().getWindow().getHandle(), 340)){
+                tooltip.remove(new TranslatableText(translationKey));
+                tooltip.add(new TranslatableText(moreInfoTranslationKey));
+            }
+        }
     }
 
 }
