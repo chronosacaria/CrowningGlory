@@ -35,12 +35,6 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_IRON,
             () -> {return Ingredient.ofItems(Items.BLUE_ICE);
     }),
-    ROYAL("royalcrown", "royal",
-            40,
-            25,
-            ITEM_ARMOR_EQUIP_GOLD,
-            () -> {return Ingredient.ofItems(Items.GOLD_INGOT);
-    }),
     WREATH("wreathcrown", "wreath",
             40,
             25,
@@ -73,7 +67,7 @@ public enum Crowns implements ArmorMaterial {
     public Rarity getRarity(){
         switch (this){
             case DIAMOND:
-            case FLORAL:
+            case FROST:
                 return Rarity.RARE;
             default:
                 return Rarity.UNCOMMON;

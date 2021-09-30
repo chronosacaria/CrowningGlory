@@ -25,8 +25,16 @@ public class CrowningGloryConfig implements ConfigData {
     public EnumMap<Crowns, CrownStats> crownStats = new EnumMap<>(Crowns.class);
 
     // convenience methods:
-    protected CrownStats crownProtection(int crownProtection, Crowns crowns){
-        return crownStats.get(crowns).crownProtection(crownProtection);
+    protected CrownStats crownProtection(int value, Crowns crowns){
+        return crownStats.get(crowns).crownProtection(value);
+    }
+
+    protected CrownStats crownDurabilityMultiplier(int value, Crowns crowns) {
+        return crownStats.get(crowns).crownDurabilityMultiplier(value);
+    }
+
+    protected CrownStats setKnockbackResistance(float value, Crowns crowns) {
+        return crownStats.get(crowns).crownKnockbackRes(value);
     }
 
     // crown config defaults
@@ -39,13 +47,15 @@ public class CrowningGloryConfig implements ConfigData {
             CrownStats stats = new CrownStats();
             stats.protection = new EnumMap<>(EquipmentSlot.class);
             for (EquipmentSlot slot : EnumSet.of(EquipmentSlot.HEAD)) {
-                stats.protection.put(slot, 0);
+                stats.protection.put(slot, 2);
             }
 
             this.crownStats.put(crowns, stats);
         }
 
-        crownProtection(4, DIAMOND);
-        crownProtection(2, FLORAL);
+        crownProtection(4, DIAMOND).crownDurabilityMultiplier(30).crownToughness(2);
+        crownProtection(2, FLORAL).crownDurabilityMultiplier(5);
+        crownProtection(3, FROST).crownDurabilityMultiplier(15);
+        crownProtection(2, WREATH).crownDurabilityMultiplier(5);
     }
 }

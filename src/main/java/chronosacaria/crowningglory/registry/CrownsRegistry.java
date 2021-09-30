@@ -40,15 +40,7 @@ public class CrownsRegistry {
         for (Crowns crown : Crowns.values()){
             EnumSet<EquipmentSlot> slot;
 
-            switch (crown) {
-                case DIAMOND:
-                case FLORAL:
-                case FROST:
-                case ROYAL:
-                case WREATH:
-                default:
-                    slot = EnumSet.of(EquipmentSlot.HEAD);
-            }
+            slot = EnumSet.of(EquipmentSlot.HEAD);
             registerCrowns(crown, slot);
         }
     }

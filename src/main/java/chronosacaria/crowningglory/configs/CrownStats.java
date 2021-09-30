@@ -9,6 +9,8 @@ public class CrownStats {
     public float toughness;
     public float knockbackRes;
 
+    public int durabilityMultiplier;
+
     public CrownStats crownProtection(int crownProtection){
         this.protection.put(EquipmentSlot.HEAD, crownProtection);
         return this;
@@ -21,6 +23,11 @@ public class CrownStats {
 
     public CrownStats crownKnockbackRes(float knockbackRes){
         this.knockbackRes = knockbackRes;
+        return this;
+    }
+
+    public CrownStats crownDurabilityMultiplier(int durabilityMultiplier){
+        this.durabilityMultiplier = durabilityMultiplier;
         return this;
     }
 }
