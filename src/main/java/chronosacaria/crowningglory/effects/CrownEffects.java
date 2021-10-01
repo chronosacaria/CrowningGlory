@@ -3,7 +3,11 @@ package chronosacaria.crowningglory.effects;
 import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
+import net.minecraft.client.gui.hud.InGameOverlayRenderer;
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
@@ -117,6 +121,21 @@ public class CrownEffects {
                 }
             }
         }
+    }
+
+    public static void applyRubyLavaEffect(PlayerEntity playerEntity){
+        World world = playerEntity.getEntityWorld();
+        BlockPos blockPos = playerEntity.getBlockPos();
+
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
+            ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
+
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
+                StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 1,
+                        false, false);
+                playerEntity.addStatusEffect(fireResistance);
+                }
+            }
     }
 
     public static void applyWreathGrowthEffect(PlayerEntity playerEntity){

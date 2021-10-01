@@ -4,6 +4,8 @@
   "package": "chronosacaria.crowningglory.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "BackgroundRendererMixin",
+    "InGameOverlayRendererMixin",
     "LivingEntityMixin"
   ],
   "client": [

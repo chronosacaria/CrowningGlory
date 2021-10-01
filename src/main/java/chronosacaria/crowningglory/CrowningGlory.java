@@ -1,6 +1,7 @@
 package chronosacaria.crowningglory;
 
 import chronosacaria.crowningglory.items.Crowns;
+import chronosacaria.crowningglory.loottables.CrowningGloryLootTables;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -23,5 +24,6 @@ public class CrowningGlory implements ModInitializer {
     @Override
     public void onInitialize() {
         CrownsRegistry.init();
+        CrowningGloryLootTables.init();
     }
 }

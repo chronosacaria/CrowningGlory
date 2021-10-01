@@ -16,7 +16,7 @@ import java.util.HashSet;
 import static chronosacaria.crowningglory.configs.CrowningGloryConfig.*;
 import static net.minecraft.loot.LootTables.*;
 
-public class CrowningGloryLoottables {
+public class CrowningGloryLootTables {
 
     public static final Collection<Identifier> DIAMOND_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
@@ -31,6 +31,11 @@ public class CrowningGloryLoottables {
     public static final Collection<Identifier> FROST_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST, IGLOO_CHEST_CHEST
+            )));
+
+    public static final Collection<Identifier> RUBY_CROWN_LOOT_TABLE =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                    NETHER_BRIDGE_CHEST, RUINED_PORTAL_CHEST
             )));
 
     public static final Collection<Identifier> WREATH_CROWN_LOOT_TABLE =
@@ -57,6 +62,9 @@ public class CrowningGloryLoottables {
             } else if (FROST_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.FROST)){
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.FROST, config.crownsSpawnRate.get(Crowns.FROST));
+            } else if (RUBY_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.RUBY)){
+                poolBuilder = FabricLootPoolBuilder.builder();
+                addCrown(poolBuilder, Crowns.RUBY, config.crownsSpawnRate.get(Crowns.RUBY));
             } else if (WREATH_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.WREATH)){
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.WREATH, config.crownsSpawnRate.get(Crowns.WREATH));

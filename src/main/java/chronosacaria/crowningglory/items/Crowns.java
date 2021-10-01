@@ -35,6 +35,12 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_IRON,
             () -> {return Ingredient.ofItems(Items.BLUE_ICE);
     }),
+    RUBY("rubydiadem", "ruby",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_IRON,
+            () -> {return Ingredient.ofItems(Items.BLAZE_POWDER);
+    }),
     WREATH("wreathcrown", "wreath",
             40,
             25,
@@ -68,6 +74,7 @@ public enum Crowns implements ArmorMaterial {
         switch (this){
             case DIAMOND:
             case FROST:
+            case RUBY:
                 return Rarity.RARE;
             default:
                 return Rarity.UNCOMMON;

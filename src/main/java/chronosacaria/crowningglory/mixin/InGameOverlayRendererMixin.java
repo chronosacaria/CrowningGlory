@@ -1,0 +1,33 @@
+package chronosacaria.crowningglory.mixin;
+
+import chronosacaria.crowningglory.items.Crowns;
+import chronosacaria.crowningglory.registry.CrownsRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.hud.InGameOverlayRenderer;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ItemStack;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(InGameOverlayRenderer.class)
+@Environment(EnvType.CLIENT)
+public class InGameOverlayRendererMixin {
+    @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
+    private static void renderFireOverlayOverride(MinecraftClient minecraftClient, MatrixStack matrixStack,
+                                                  CallbackInfo ci){
+        if (MinecraftClient.getInstance().player != null) {
+            if (MinecraftClient.getInstance().player.isOnFire()){
+                ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);
+
+                if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()){
+                    ci.cancel();
+                }
+            }
+        }
+    }
+}

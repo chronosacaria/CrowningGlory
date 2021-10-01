@@ -15,7 +15,6 @@
   "item.crowningglory.floral_crown.moreinfo.tooltip_3":     "are random each time you sneak.",
   "item.crowningglory.floral_crown.moreinfo.tooltip_4":     " ",
 
-
   "item.crowningglory.frost_crown":                         "Frost Circlet",
   "item.crowningglory.frost_crown.tooltip_1":               "The chill of this circlet gives you",
   "item.crowningglory.frost_crown.tooltip_2":               "a certain confidence. You're sure that",
@@ -27,6 +26,18 @@
   "item.crowningglory.frost_crown.moreinfo.tooltip_3":      "them into ice and crying obsidian",
   "item.crowningglory.frost_crown.moreinfo.tooltip_4":      "respectively.",
   "item.crowningglory.frost_crown.moreinfo.tooltip_5":      " ",
+
+  "item.crowningglory.ruby_crown":                          "Ruby Diadem",
+  "item.crowningglory.ruby_crown.tooltip_1":                "You can feel the heat of the Nether",
+  "item.crowningglory.ruby_crown.tooltip_2":                "when placing the diadem upon your",
+  "item.crowningglory.ruby_crown.tooltip_3":                "head.",
+  "item.crowningglory.ruby_crown.tooltip_4":                " ",
+  "item.crowningglory.ruby_crown.tooltip_5":                "Hold [SHIFT] for more information.",
+  "item.crowningglory.ruby_crown.moreinfo.tooltip_1":       "Wearing this diadem allows you to",
+  "item.crowningglory.ruby_crown.moreinfo.tooltip_2":       "swim and see in lava.",
+  "item.crowningglory.ruby_crown.moreinfo.tooltip_3":       " ",
+  "item.crowningglory.ruby_crown.moreinfo.tooltip_4":       " ",
+  "item.crowningglory.ruby_crown.moreinfo.tooltip_5":       " ",
 
   "item.crowningglory.wreath_crown":                        "Wreath Crown",
   "item.crowningglory.wreath_crown.tooltip_1":              "While wearing this crown you are certain",
