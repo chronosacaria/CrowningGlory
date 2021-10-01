@@ -17,6 +17,12 @@ import static net.minecraft.sound.SoundEvents.*;
 
 public enum Crowns implements ArmorMaterial {
 
+    AQUAMARINE("aquamarinecirclet", "aquamarine",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.PRISMARINE_SHARD);
+    }),
     DIAMOND("diamondcoronet", "diamond",
             40,
             25,
@@ -38,7 +44,7 @@ public enum Crowns implements ArmorMaterial {
     RUBY("rubydiadem", "ruby",
             40,
             25,
-            ITEM_ARMOR_EQUIP_IRON,
+            ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.BLAZE_POWDER);
     }),
     WREATH("wreathcrown", "wreath",

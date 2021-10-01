@@ -55,6 +55,7 @@ public class CrowningGloryConfig implements ConfigData {
             this.crownStats.put(crowns, stats);
         }
 
+        crownProtection(3, AQUAMARINE).crownDurabilityMultiplier(15);
         crownProtection(4, DIAMOND).crownDurabilityMultiplier(30).crownToughness(2);
         crownProtection(2, FLORAL).crownDurabilityMultiplier(5);
         crownProtection(3, FROST).crownDurabilityMultiplier(15);
@@ -63,6 +64,10 @@ public class CrowningGloryConfig implements ConfigData {
 
         for (Crowns crowns : Crowns.values()){
             enableCrownSpawning.put(crowns, true);
+        }
+
+        for (CrownEffectID crownEffectID : CrownEffectID.values()){
+            enableCrownEffects.put(crownEffectID, true);
         }
 
         for (Crowns crowns : Crowns.values()){

@@ -20,5 +20,6 @@ public class LivingEntityMixin {
         CrownEffects.applyFluidWalkingEffect(playerEntity);
         CrownEffects.applyLavaSwimmerEffect(playerEntity);
         CrownEffects.applyGrowthEffect(playerEntity);
+        CrownEffects.applyWaterBreathingEffect(playerEntity);
     }
 }

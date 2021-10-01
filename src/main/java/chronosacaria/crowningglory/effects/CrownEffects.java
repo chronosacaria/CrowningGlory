@@ -1,6 +1,5 @@
 package chronosacaria.crowningglory.effects;
 
-import chronosacaria.crowningglory.configs.CrowningGloryConfig;
 import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
@@ -168,11 +167,28 @@ public class CrownEffects {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
-                StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 1,
+                StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 0,
                         false, false);
                 playerEntity.addStatusEffect(fireResistance);
-                }
             }
+        }
+    }
+
+    public static void applyWaterBreathingEffect(PlayerEntity playerEntity){
+        if (!config.enableCrownEffects.get(WATER_BREATHING))
+            return;
+
+        World world = playerEntity.getEntityWorld();
+
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
+            ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
+
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AQUAMARINE).get(EquipmentSlot.HEAD).asItem()) {
+                StatusEffectInstance waterBreathing = new StatusEffectInstance(StatusEffects.WATER_BREATHING, 42, 0,
+                        false, false);
+                playerEntity.addStatusEffect(waterBreathing);
+            }
+        }
     }
 
     private static void addParticles(ServerWorld world, BlockPos blockPos, ParticleEffect particleEffect){
