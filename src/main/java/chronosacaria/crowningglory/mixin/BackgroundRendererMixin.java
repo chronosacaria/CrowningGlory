@@ -16,12 +16,18 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static chronosacaria.crowningglory.configs.CrowningGloryConfig.config;
+import static chronosacaria.crowningglory.effects.CrownEffectID.LAVA_VISION;
+
 @Mixin(BackgroundRenderer.class)
 @Environment(EnvType.CLIENT)
 public class BackgroundRendererMixin {
     @Inject(method = "applyFog", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;" +
             "setShaderFogEnd(F)V"), cancellable = true)
     private static void fogDensity(Camera camera, BackgroundRenderer.FogType fogType, float viewDistance, boolean thickFog, CallbackInfo ci) {
+        if (!config.enableCrownEffects.get(LAVA_VISION))
+            return;
+
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         if (MinecraftClient.getInstance().player != null) {
             ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);

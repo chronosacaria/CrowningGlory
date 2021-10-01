@@ -1,10 +1,9 @@
 package chronosacaria.crowningglory.effects;
 
+import chronosacaria.crowningglory.configs.CrowningGloryConfig;
 import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
-import net.minecraft.client.gui.hud.InGameOverlayRenderer;
-import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -17,9 +16,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import static chronosacaria.crowningglory.configs.CrowningGloryConfig.*;
+import static chronosacaria.crowningglory.effects.CrownEffectID.*;
 
 public class CrownEffects {
 
@@ -31,6 +32,9 @@ public class CrownEffects {
                     Blocks.LILAC, Blocks.ROSE_BUSH, Blocks.PEONY);
 
     public static void applyFlowerWalkerEffect(PlayerEntity playerEntity){
+        if (!config.enableCrownEffects.get(FLOWER_WALKER))
+            return;
+
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
@@ -43,11 +47,8 @@ public class CrownEffects {
                             FLOWER_WALKER_LIST.get(playerEntity.getRandom().nextInt(FLOWER_WALKER_LIST.size())).getDefaultState();
                     float size = (float) Math.min(16, 2 + 1);
                     BlockPos.Mutable mutablePosition = new BlockPos.Mutable();
-                    Iterator blockPosIterator =
-                            BlockPos.iterate(blockPos.add(-size, 0.0D, -size), blockPos.add(size, 0.0D, size)).iterator();
 
-                    while (blockPosIterator.hasNext()) {
-                        BlockPos blockPos2 = (BlockPos) blockPosIterator.next();
+                    for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-size, 0.0D, -size), blockPos.add(size, 0.0D, size))) {
                         if (blockPos2.isWithinDistance(playerEntity.getPos(), size)) {
                             mutablePosition.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
                             BlockState checkState = world.getBlockState(mutablePosition);
@@ -67,6 +68,9 @@ public class CrownEffects {
     }
 
     public static void applyFluidWalkingEffect(PlayerEntity playerEntity){
+        if (!config.enableCrownEffects.get(FLUID_WALKER))
+            return;
+
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
@@ -78,11 +82,8 @@ public class CrownEffects {
                     BlockState blockState = Blocks.FROSTED_ICE.getDefaultState();
                     float size = (float) Math.min(16, 2 + 1);
                     BlockPos.Mutable mutablePosition = new BlockPos.Mutable();
-                    Iterator blockPosIterator =
-                            BlockPos.iterate(blockPos.add(-size, -1.0D, -size), blockPos.add(size, -1.0D, size)).iterator();
 
-                    while (blockPosIterator.hasNext()) {
-                        BlockPos blockPos2 = (BlockPos) blockPosIterator.next();
+                    for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-size, -1.0D, -size), blockPos.add(size, -1.0D, size))) {
                         if (blockPos2.isWithinDistance(playerEntity.getPos(), size)) {
                             mutablePosition.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
                             BlockState checkState = world.getBlockState(mutablePosition);
@@ -101,10 +102,8 @@ public class CrownEffects {
                     BlockState blockState = Blocks.CRYING_OBSIDIAN.getDefaultState();
                     float size = (float) Math.min(16, 2 + 1);
                     BlockPos.Mutable mutablePosition = new BlockPos.Mutable();
-                    Iterator blockPosIterator = BlockPos.iterate(blockPos.add(-size, -1.0D, -size), blockPos.add(size, -1.0D, size)).iterator();
 
-                    while (blockPosIterator.hasNext()) {
-                        BlockPos blockPos2 = (BlockPos) blockPosIterator.next();
+                    for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-size, -1.0D, -size), blockPos.add(size, -1.0D, size))) {
                         if (blockPos2.isWithinDistance(playerEntity.getPos(), size)) {
                             mutablePosition.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
                             BlockState checkState = world.getBlockState(mutablePosition);
@@ -123,22 +122,10 @@ public class CrownEffects {
         }
     }
 
-    public static void applyRubyLavaEffect(PlayerEntity playerEntity){
-        World world = playerEntity.getEntityWorld();
-        BlockPos blockPos = playerEntity.getBlockPos();
+    public static void applyGrowthEffect(PlayerEntity playerEntity){
+        if (!config.enableCrownEffects.get(GROWTH))
+            return;
 
-        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
-            ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
-
-            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
-                StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 1,
-                        false, false);
-                playerEntity.addStatusEffect(fireResistance);
-                }
-            }
-    }
-
-    public static void applyWreathGrowthEffect(PlayerEntity playerEntity){
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
@@ -149,19 +136,15 @@ public class CrownEffects {
                 if (playerEntity.isOnGround() && playerEntity.isSneaking()) {
                     float size = (float) Math.min(16, 2 + 1);
                     BlockPos.Mutable mutablePosition = new BlockPos.Mutable();
-                    Iterator blockPosIterator =
-                            BlockPos.iterate(blockPos.add(-size, 0.0D, -size), blockPos.add(size, 0.0D, size)).iterator();
 
-                    while (blockPosIterator.hasNext()) {
-                        BlockPos blockPos2 = (BlockPos) blockPosIterator.next();
+                    for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-size, 0.0D, -size), blockPos.add(size, 0.0D, size))) {
                         if (blockPos2.isWithinDistance(playerEntity.getPos(), size)) {
                             mutablePosition.set(blockPos2.getX(), blockPos2.getY() + 1, blockPos2.getZ());
                             BlockState checkState = world.getBlockState(blockPos2);
-                            if (checkState.getBlock() instanceof Fertilizable) {
-                                Fertilizable fertilizable = (Fertilizable) checkState.getBlock();
-                                if (fertilizable.isFertilizable(world, blockPos2, checkState, world.isClient)){
-                                    if (world instanceof ServerWorld){
-                                        if (fertilizable.canGrow(world, world.random, blockPos2, checkState)){
+                            if (checkState.getBlock() instanceof Fertilizable fertilizable) {
+                                if (fertilizable.isFertilizable(world, blockPos2, checkState, world.isClient)) {
+                                    if (world instanceof ServerWorld) {
+                                        if (fertilizable.canGrow(world, world.random, blockPos2, checkState)) {
                                             fertilizable.grow((ServerWorld) world, world.random, blockPos2, checkState);
                                             addParticles((ServerWorld) world, blockPos2, ParticleTypes.HAPPY_VILLAGER);
                                         }
@@ -173,6 +156,23 @@ public class CrownEffects {
                 }
             }
         }
+    }
+
+    public static void applyLavaSwimmerEffect(PlayerEntity playerEntity){
+        if (!config.enableCrownEffects.get(LAVA_SWIMMER))
+            return;
+
+        World world = playerEntity.getEntityWorld();
+
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
+            ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
+
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
+                StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 1,
+                        false, false);
+                playerEntity.addStatusEffect(fireResistance);
+                }
+            }
     }
 
     private static void addParticles(ServerWorld world, BlockPos blockPos, ParticleEffect particleEffect){

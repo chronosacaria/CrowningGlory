@@ -1,6 +1,7 @@
 package chronosacaria.crowningglory.configs;
 
 import chronosacaria.crowningglory.CrowningGlory;
+import chronosacaria.crowningglory.effects.CrownEffectID;
 import chronosacaria.crowningglory.items.Crowns;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
@@ -23,6 +24,7 @@ public class CrowningGloryConfig implements ConfigData {
     }
 
     public EnumMap<Crowns, CrownStats> crownStats = new EnumMap<>(Crowns.class);
+    public EnumMap<CrownEffectID, Boolean> enableCrownEffects = new EnumMap<>(CrownEffectID.class);
     public EnumMap<Crowns, Boolean> enableCrownSpawning = new EnumMap<>(Crowns.class);
     public EnumMap<Crowns, Float> crownsSpawnRate = new EnumMap<>(Crowns.class);
 
