@@ -17,6 +17,16 @@
   "item.crowningglory.diamond_crown.tooltip_1":                   "This coronet, made of solid diamond,",
   "item.crowningglory.diamond_crown.tooltip_2":                   "is stronger than it might seem.",
 
+  "item.crowningglory.ender_crown":                               "Ender Diadem",
+  "item.crowningglory.ender_crown.tooltip_1":                     "This diadem makes you feel like",
+  "item.crowningglory.ender_crown.tooltip_2":                     "you are one with the Void.",
+  "item.crowningglory.ender_crown.tooltip_3":                     " ",
+  "item.crowningglory.ender_crown.tooltip_4":                     "Hold [SHIFT] for more information.",
+  "item.crowningglory.ender_crown.moreinfo.tooltip_1":            "Wearing this diadem allows you to",
+  "item.crowningglory.ender_crown.moreinfo.tooltip_2":            "to be protected from falling into",
+  "item.crowningglory.ender_crown.moreinfo.tooltip_3":            "the Void. You will be teleported to",
+  "item.crowningglory.ender_crown.moreinfo.tooltip_4":            "safety.",
+
   "item.crowningglory.floral_crown":                              "Floral Crown",
   "item.crowningglory.floral_crown.tooltip_1":                    "You can feel the call of nature while",
   "item.crowningglory.floral_crown.tooltip_2":                    "wearing this Floral Crown.",

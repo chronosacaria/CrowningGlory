@@ -4,13 +4,19 @@ import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -170,6 +176,47 @@ public class CrownEffects {
                 StatusEffectInstance fireResistance = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 42, 0,
                         false, false);
                 playerEntity.addStatusEffect(fireResistance);
+            }
+        }
+    }
+
+    public static void voidProtectionTeleportEffect(LivingEntity livingEntity) {
+        if (!config.enableCrownEffects.get(VOID_PROTECTION))
+            return;
+
+        World world = livingEntity.getEntityWorld();
+        DamageSource damageSource = livingEntity.getRecentDamageSource();
+        ItemStack helmetStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
+
+        if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.ENDER).get(EquipmentSlot.HEAD).asItem()) {
+            if (damageSource != null && !world.isClient && damageSource.isOutOfWorld()) {
+                double xpos = livingEntity.getX();
+                double ypos = livingEntity.getY();
+                double zpos = livingEntity.getZ();
+
+                for (int i = 0; i < 256; i++) {
+                    double teleportX = livingEntity.getX() + (livingEntity.getRandom().nextDouble() - 0.5D) * 256.0D;
+                    double teleportY =
+                            MathHelper.clamp(livingEntity.getY() + (double) (livingEntity.getRandom().nextInt(256) - 8),
+                                    0.0D, world.getHeight() - 1);
+                    double teleportZ = livingEntity.getZ() + (livingEntity.getRandom().nextDouble() - 0.5D) * 256.0D;
+                    if (livingEntity.hasVehicle()) {
+                        livingEntity.stopRiding();
+                    }
+                    if (livingEntity.teleport(teleportX, teleportY, teleportZ, true)) {
+                        SoundEvent soundEvent = livingEntity instanceof FoxEntity ? SoundEvents.ENTITY_FOX_TELEPORT :
+                                SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT;
+                        livingEntity.world.playSound(
+                                null,
+                                xpos,
+                                ypos,
+                                zpos,
+                                soundEvent,
+                                SoundCategory.PLAYERS,
+                                1.0F,
+                                1.0F);
+                    }
+                }
             }
         }
     }

@@ -28,6 +28,11 @@ public class CrowningGloryLootTables {
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST
             )));
 
+    public static final Collection<Identifier> ENDER_CROWN_LOOT_TABLE =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                    STRONGHOLD_CORRIDOR_CHEST, STRONGHOLD_CROSSING_CHEST, STRONGHOLD_LIBRARY_CHEST, END_CITY_TREASURE_CHEST
+            )));
+
     public static final Collection<Identifier> FROST_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST, IGLOO_CHEST_CHEST
@@ -55,19 +60,26 @@ public class CrowningGloryLootTables {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.DIAMOND, config.crownsSpawnRate.get(Crowns.DIAMOND));
                 supplier.pool(poolBuilder);
-            } else if (FLORAL_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.FLORAL)){
+            } else if (ENDER_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.ENDER)) {
+                poolBuilder = FabricLootPoolBuilder.builder();
+                addCrown(poolBuilder, Crowns.ENDER, config.crownsSpawnRate.get(Crowns.ENDER));
+                supplier.pool(poolBuilder);
+            } else if (FLORAL_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.FLORAL)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.FLORAL, config.crownsSpawnRate.get(Crowns.FLORAL));
                 supplier.pool(poolBuilder);
-            } else if (FROST_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.FROST)){
+            } else if (FROST_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.FROST)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.FROST, config.crownsSpawnRate.get(Crowns.FROST));
-            } else if (RUBY_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.RUBY)){
+                supplier.pool(poolBuilder);
+            } else if (RUBY_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.RUBY)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.RUBY, config.crownsSpawnRate.get(Crowns.RUBY));
-            } else if (WREATH_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.WREATH)){
+                supplier.pool(poolBuilder);
+            } else if (WREATH_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.WREATH)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.WREATH, config.crownsSpawnRate.get(Crowns.WREATH));
+                supplier.pool(poolBuilder);
             }
         });
     }

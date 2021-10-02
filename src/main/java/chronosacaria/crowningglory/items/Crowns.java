@@ -29,6 +29,12 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.DIAMOND);
     }),
+    ENDER("enderdiadem", "ender",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.ENDER_PEARL);
+            }),
     FLORAL("floralcrown", "floral",
             40,
             25,
