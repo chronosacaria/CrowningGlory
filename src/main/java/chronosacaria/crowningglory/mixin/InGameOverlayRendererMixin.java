@@ -26,7 +26,7 @@ public class InGameOverlayRendererMixin {
         if (!config.enableCrownEffects.get(LAVA_VISION))
             return;
 
-        if (MinecraftClient.getInstance().player != null) {
+        if (MinecraftClient.getInstance().player != null && config.enableCrownsRegistration.get(Crowns.RUBY)) {
             if (MinecraftClient.getInstance().player.isOnFire()){
                 ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);
 

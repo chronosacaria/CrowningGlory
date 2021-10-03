@@ -29,7 +29,7 @@ public class BackgroundRendererMixin {
         if (!config.enableCrownEffects.get(LAVA_VISION))
             return;
 
-        if (MinecraftClient.getInstance().player != null) {
+        if (MinecraftClient.getInstance().player != null && config.enableCrownsRegistration.get(Crowns.RUBY)) {
             ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
                 if (camera.getSubmersionType() == CameraSubmersionType.LAVA) {
@@ -46,7 +46,7 @@ public class BackgroundRendererMixin {
         if (!config.enableCrownEffects.get(WATER_VISION))
             return;
 
-        if (MinecraftClient.getInstance().player != null) {
+        if (MinecraftClient.getInstance().player != null && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
             ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AQUAMARINE).get(EquipmentSlot.HEAD).asItem()) {
                 if (camera.getSubmersionType() == CameraSubmersionType.WATER) {

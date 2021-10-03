@@ -1,6 +1,7 @@
 package chronosacaria.crowningglory.registry;
 
 import chronosacaria.crowningglory.CrowningGlory;
+import chronosacaria.crowningglory.configs.CrowningGloryConfig;
 import chronosacaria.crowningglory.items.CrownItem;
 import chronosacaria.crowningglory.items.Crowns;
 import net.minecraft.entity.EquipmentSlot;
@@ -28,12 +29,14 @@ public class CrownsRegistry {
     protected static void registerCrowns(Crowns crown, EnumSet<EquipmentSlot> slots){
         EnumMap<EquipmentSlot, Item> slotMap = new EnumMap<>(EquipmentSlot.class);
 
-        for (EquipmentSlot slot : slots){
-            CrownItem item = new CrownItem(crown, slot);
-            slotMap.put(slot, item);
-            Registry.register(Registry.ITEM, CrowningGlory.ID(crownID(crown, slot)), item);
+        if (CrowningGloryConfig.config.enableCrownsRegistration.get(crown)) {
+            for (EquipmentSlot slot : slots) {
+                CrownItem item = new CrownItem(crown, slot);
+                slotMap.put(slot, item);
+                Registry.register(Registry.ITEM, CrowningGlory.ID(crownID(crown, slot)), item);
+            }
+            crownItems.put(crown, slotMap);
         }
-        crownItems.put(crown, slotMap);
     }
 
     public static void init(){

@@ -43,7 +43,7 @@ public class CrownEffects {
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
-        if (playerEntity.isAlive() && world.getTime() % 20 == 0) {
+        if (playerEntity.isAlive() && world.getTime() % 20 == 0 && config.enableCrownsRegistration.get(Crowns.FLORAL)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.FLORAL).get(EquipmentSlot.HEAD).asItem()) {
@@ -79,7 +79,7 @@ public class CrownEffects {
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
-        if (playerEntity.isAlive() && world.getTime() % 10 == 0) {
+        if (playerEntity.isAlive() && world.getTime() % 10 == 0 && config.enableCrownsRegistration.get(Crowns.FROST)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.FROST).get(EquipmentSlot.HEAD).asItem()) {
@@ -134,7 +134,7 @@ public class CrownEffects {
         World world = playerEntity.getEntityWorld();
         BlockPos blockPos = playerEntity.getBlockPos();
 
-        if (playerEntity.isAlive() && world.getTime() % 20 == 0) {
+        if (playerEntity.isAlive() && world.getTime() % 20 == 0 && config.enableCrownsRegistration.get(Crowns.WREATH)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.WREATH).get(EquipmentSlot.HEAD).asItem()) {
@@ -169,7 +169,7 @@ public class CrownEffects {
 
         World world = playerEntity.getEntityWorld();
 
-        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.RUBY)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.RUBY).get(EquipmentSlot.HEAD).asItem()) {
@@ -188,8 +188,8 @@ public class CrownEffects {
         DamageSource damageSource = livingEntity.getRecentDamageSource();
         ItemStack helmetStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
 
-        if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.ENDER).get(EquipmentSlot.HEAD).asItem()) {
-            if (damageSource != null && !world.isClient && damageSource.isOutOfWorld()) {
+        if (damageSource != null && !world.isClient && damageSource.isOutOfWorld() && config.enableCrownsRegistration.get(Crowns.ENDER)) {
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.ENDER).get(EquipmentSlot.HEAD).asItem()) {
                 double xpos = livingEntity.getX();
                 double ypos = livingEntity.getY();
                 double zpos = livingEntity.getZ();
@@ -227,7 +227,7 @@ public class CrownEffects {
 
         World world = playerEntity.getEntityWorld();
 
-        if (playerEntity.isAlive() && world.getTime() % 40 == 0) {
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
             if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AQUAMARINE).get(EquipmentSlot.HEAD).asItem()) {

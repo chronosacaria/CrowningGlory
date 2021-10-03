@@ -23,6 +23,7 @@ public class CrowningGloryConfig implements ConfigData {
         config = AutoConfig.getConfigHolder(CrowningGloryConfig.class).getConfig();
     }
 
+    public EnumMap<Crowns, Boolean> enableCrownsRegistration = new EnumMap<>(Crowns.class);
     public EnumMap<Crowns, CrownStats> crownStats = new EnumMap<>(Crowns.class);
     public EnumMap<CrownEffectID, Boolean> enableCrownEffects = new EnumMap<>(CrownEffectID.class);
     public EnumMap<Crowns, Boolean> enableCrownSpawning = new EnumMap<>(Crowns.class);
@@ -62,6 +63,10 @@ public class CrowningGloryConfig implements ConfigData {
         crownProtection(3, FROST).crownDurabilityMultiplier(15);
         crownProtection(3, RUBY).crownDurabilityMultiplier(15);
         crownProtection(2, WREATH).crownDurabilityMultiplier(5);
+
+        for (Crowns crowns : Crowns.values()){
+            enableCrownsRegistration.put(crowns, true);
+        }
 
         for (Crowns crowns : Crowns.values()){
             enableCrownSpawning.put(crowns, true);
