@@ -18,6 +18,7 @@ public class LivingEntityMixin {
 
         PlayerEntity playerEntity = (PlayerEntity) (Object) this;
 
+        CrownEffects.applyAzuresAdvantageousAdornmentEffect(playerEntity);
         CrownEffects.applyFlowerWalkerEffect(playerEntity);
         CrownEffects.applyFluidWalkingEffect(playerEntity);
         CrownEffects.applyLavaSwimmerEffect(playerEntity);

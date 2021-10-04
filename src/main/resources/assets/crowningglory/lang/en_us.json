@@ -1,6 +1,18 @@
 {
   "itemGroup.crowningglory.crowns":                               "Crowning Glory",
 
+  "item.crowningglory.azures_crown":                              "Azure's Advantageous Adornment",
+  "item.crowningglory.azures_crown.tooltip_1":                    "While wearing this crown you feel",
+  "item.crowningglory.azures_crown.tooltip_2":                    "unusually lucky. Almost as if you",
+  "item.crowningglory.azures_crown.tooltip_3":                    "could tempt fate, itself.",
+  "item.crowningglory.azures_crown.tooltip_4":                    " ",
+  "item.crowningglory.azures_crown.tooltip_5":                    "Hold [SHIFT] for more information.",
+  "item.crowningglory.azures_crown.moreinfo.tooltip_1":           "Wearing this crown gives you the Luck",
+  "item.crowningglory.azures_crown.moreinfo.tooltip_2":           "status effect, giving you an advantage",
+  "item.crowningglory.azures_crown.moreinfo.tooltip_3":           "when it comes to loot rolls from mobs",
+  "item.crowningglory.azures_crown.moreinfo.tooltip_4":           "and blocks. It also gives you a chance",
+  "item.crowningglory.azures_crown.moreinfo.tooltip_5":           "to get better items while fishing.",
+
   "item.crowningglory.aquamarine_crown":                          "Aquamarine Circlet",
   "item.crowningglory.aquamarine_crown.tooltip_1":                "While wearing this circlet, your",
   "item.crowningglory.aquamarine_crown.tooltip_2":                "lungs feel full of water, and your",
@@ -12,6 +24,18 @@
   "item.crowningglory.aquamarine_crown.moreinfo.tooltip_3":       "as if it were air.",
   "item.crowningglory.aquamarine_crown.moreinfo.tooltip_4":       " ",
   "item.crowningglory.aquamarine_crown.moreinfo.tooltip_5":       " ",
+
+  "item.crowningglory.catseye_crown":                             "Cat's Eye Circlet",
+  "item.crowningglory.catseye_crown.tooltip_1":                   "While wearing this circlet, you feel",
+  "item.crowningglory.catseye_crown.tooltip_2":                   "as if you are surrounded by millions",
+  "item.crowningglory.catseye_crown.tooltip_3":                   "of invisible cats.",
+  "item.crowningglory.catseye_crown.tooltip_4":                   " ",
+  "item.crowningglory.catseye_crown.tooltip_5":                   "Hold [SHIFT] for more information.",
+  "item.crowningglory.catseye_crown.moreinfo.tooltip_1":          "While wearing this circlet, Creepers",
+  "item.crowningglory.catseye_crown.moreinfo.tooltip_2":          "fear your very presence and will run",
+  "item.crowningglory.catseye_crown.moreinfo.tooltip_3":          "simply at the sight of you.",
+  "item.crowningglory.catseye_crown.moreinfo.tooltip_4":          " ",
+  "item.crowningglory.catseye_crown.moreinfo.tooltip_5":          " ",
 
   "item.crowningglory.diamond_crown":                             "Diamond Coronet",
   "item.crowningglory.diamond_crown.tooltip_1":                   "This coronet, made of solid diamond,",

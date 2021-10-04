@@ -23,6 +23,11 @@ public class CrowningGloryLootTables {
                     SIMPLE_DUNGEON_CHEST, SHIPWRECK_TREASURE_CHEST
             )));
 
+    public static final Collection<Identifier> AZURE_CROWN_LOOT_TABLE =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                    SIMPLE_DUNGEON_CHEST, WOODLAND_MANSION_CHEST
+            )));
+
     public static final Collection<Identifier> DIAMOND_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST
@@ -64,6 +69,10 @@ public class CrowningGloryLootTables {
             if (AQUAMARINE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.AQUAMARINE) && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.AQUAMARINE, config.crownsSpawnRate.get(Crowns.AQUAMARINE));
+                supplier.pool(poolBuilder);
+            } else if (AZURE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.AZURE) && config.enableCrownsRegistration.get(Crowns.AZURE)) {
+                poolBuilder = FabricLootPoolBuilder.builder();
+                addCrown(poolBuilder, Crowns.AZURE, config.crownsSpawnRate.get(Crowns.AZURE));
                 supplier.pool(poolBuilder);
             } else if (DIAMOND_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.DIAMOND) && config.enableCrownsRegistration.get(Crowns.DIAMOND)){
                 poolBuilder = FabricLootPoolBuilder.builder();

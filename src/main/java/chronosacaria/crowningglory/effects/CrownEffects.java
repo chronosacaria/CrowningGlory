@@ -3,6 +3,7 @@ package chronosacaria.crowningglory.effects;
 import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -35,6 +36,28 @@ public class CrownEffects {
                     Blocks.PINK_TULIP, Blocks.WHITE_TULIP, Blocks.ORANGE_TULIP,
                     Blocks.CORNFLOWER, Blocks.LILY_OF_THE_VALLEY, Blocks.SUNFLOWER,
                     Blocks.LILAC, Blocks.ROSE_BUSH, Blocks.PEONY);
+
+    public static void applyAzuresAdvantageousAdornmentEffect(LivingEntity livingEntity){
+        if (livingEntity != null) {
+            if (!config.enableCrownEffects.get(AZURES_ADVANTAGEOUS_ADORNMENT))
+                return;
+
+            if (!(livingEntity instanceof PlayerEntity)) return;
+
+            World world = livingEntity.getEntityWorld();
+
+            StatusEffectInstance luck = new StatusEffectInstance(StatusEffects.LUCK, 42, 2,
+                    false, false);
+
+            ItemStack helmetStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
+
+            if (livingEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.AZURE)) {
+                if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AZURE).get(EquipmentSlot.HEAD).asItem()) {
+                    livingEntity.addStatusEffect(luck);
+                }
+            }
+        }
+    }
 
     public static void applyFlowerWalkerEffect(PlayerEntity playerEntity){
         if (!config.enableCrownEffects.get(FLOWER_WALKER))

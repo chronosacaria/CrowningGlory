@@ -23,6 +23,18 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.PRISMARINE_SHARD);
     }),
+    AZURE("azuresadvantageousadornment", "azures",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.LAPIS_BLOCK);
+            }),
+    CATSEYE("catseyecirclet", "catseye",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.GUNPOWDER);
+            }),
     DIAMOND("diamondcoronet", "diamond",
             40,
             25,
