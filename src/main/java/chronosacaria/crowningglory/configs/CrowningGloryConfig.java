@@ -56,16 +56,27 @@ public class CrowningGloryConfig implements ConfigData {
             this.crownStats.put(crowns, stats);
         }
 
-        crownProtection(3, AZURE).crownDurabilityMultiplier(15);
-        crownProtection(3, AQUAMARINE).crownDurabilityMultiplier(15);
-        crownProtection(2, CATSEYE).crownDurabilityMultiplier(15);
-        crownProtection(4, DIAMOND).crownDurabilityMultiplier(30).crownToughness(2);
-        crownProtection(3, ENDER).crownDurabilityMultiplier(10);
-        crownProtection(2, FLORAL).crownDurabilityMultiplier(5);
-        crownProtection(3, FROST).crownDurabilityMultiplier(15);
-        crownProtection(3, RUBY).crownDurabilityMultiplier(15);
-        crownProtection(3, VALKYRIE).crownDurabilityMultiplier(15);
-        crownProtection(2, WREATH).crownDurabilityMultiplier(5);
+        crownProtection(3, AZURE);
+            crownDurabilityMultiplier(15, AZURE);
+        crownProtection(3, AQUAMARINE);
+            crownDurabilityMultiplier(15, AQUAMARINE);
+        crownProtection(2, CATSEYE);
+            crownDurabilityMultiplier(15, CATSEYE);
+        crownProtection(4, DIAMOND).crownToughness(2);
+            crownDurabilityMultiplier(30, DIAMOND);
+        crownProtection(3, ENDER);
+            crownDurabilityMultiplier(10, ENDER);
+        crownProtection(2, FLORAL);
+            crownDurabilityMultiplier(5, FLORAL);
+        crownProtection(3, FROST);
+            crownDurabilityMultiplier(15, FROST);
+        crownProtection(3, RUBY);
+            crownDurabilityMultiplier(15, RUBY);
+        crownProtection(3, VALKYRIE);
+            crownDurabilityMultiplier(15, VALKYRIE);
+        crownProtection(2, WREATH);
+            crownDurabilityMultiplier(5, WREATH);
+
 
         for (Crowns crowns : Crowns.values()){
             enableCrownsRegistration.put(crowns, true);

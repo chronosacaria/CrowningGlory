@@ -18,61 +18,51 @@ import static net.minecraft.sound.SoundEvents.*;
 public enum Crowns implements ArmorMaterial {
 
     AQUAMARINE("aquamarinecirclet", "aquamarine",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.PRISMARINE_SHARD);
     }),
     AZURE("azuresadvantageousadornment", "azures",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.LAPIS_BLOCK);
             }),
     CATSEYE("catseyecirclet", "catseye",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.GUNPOWDER);
             }),
     DIAMOND("diamondcoronet", "diamond",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.DIAMOND);
     }),
     ENDER("enderdiadem", "ender",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.ENDER_PEARL);
             }),
     FLORAL("floralcrown", "floral",
-            40,
             25,
             ITEM_ARMOR_EQUIP_ELYTRA,
             () -> {return Ingredient.ofItems(Items.DANDELION);
     }),
     FROST("frostcirclet", "frost",
-            40,
             25,
             ITEM_ARMOR_EQUIP_IRON,
             () -> {return Ingredient.ofItems(Items.BLUE_ICE);
     }),
     RUBY("rubydiadem", "ruby",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.BLAZE_POWDER);
     }),
     VALKYRIE("valkyrielaurel", "valkyrie",
-            40,
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.FEATHER);
     }),
     WREATH("wreathcrown", "wreath",
-            40,
             25,
             ITEM_ARMOR_EQUIP_ELYTRA,
             () -> {return Ingredient.ofItems(Items.DANDELION);
@@ -81,16 +71,14 @@ public enum Crowns implements ArmorMaterial {
     private static final int[] baseDurability = new int[]{12, 14, 15, 10};
     private final String textureName;
     private final String crownName;
-    private final int durabilityMultiplier;
     private final int enchantability;
     private final SoundEvent equipSound;
     private final Lazy<Ingredient> repairIngredient;
 
-    Crowns(String textureName, String crownName, int durabilityMultiplier, int enchantability, SoundEvent soundEvent,
+    Crowns(String textureName, String crownName, int enchantability, SoundEvent soundEvent,
            Supplier<Ingredient> repairIngredient){
         this.textureName = textureName;
         this.crownName = crownName;
-        this.durabilityMultiplier = durabilityMultiplier;
         this.enchantability = enchantability;
         this.equipSound = soundEvent;
         this.repairIngredient = new Lazy<>(repairIngredient);
@@ -119,7 +107,7 @@ public enum Crowns implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot slot){
-        return baseDurability[slot.getEntitySlotId()] * this.durabilityMultiplier;
+        return baseDurability[slot.getEntitySlotId()] * config.crownStats.get(this).durabilityMultiplier;
     }
 
     @Override
