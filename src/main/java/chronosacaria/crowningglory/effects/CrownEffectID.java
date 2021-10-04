@@ -8,6 +8,7 @@ public enum CrownEffectID {
     GROWTH,
     LAVA_SWIMMER,
     LAVA_VISION,
+    VALKYRIES_FLIGHT,
     VOID_PROTECTION,
     WATER_BREATHING,
     WATER_VISION

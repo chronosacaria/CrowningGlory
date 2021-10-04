@@ -64,6 +64,7 @@ public class CrowningGloryConfig implements ConfigData {
         crownProtection(2, FLORAL).crownDurabilityMultiplier(5);
         crownProtection(3, FROST).crownDurabilityMultiplier(15);
         crownProtection(3, RUBY).crownDurabilityMultiplier(15);
+        crownProtection(3, VALKYRIE).crownDurabilityMultiplier(15);
         crownProtection(2, WREATH).crownDurabilityMultiplier(5);
 
         for (Crowns crowns : Crowns.values()){

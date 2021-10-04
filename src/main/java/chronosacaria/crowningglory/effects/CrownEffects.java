@@ -3,7 +3,6 @@ package chronosacaria.crowningglory.effects;
 import chronosacaria.crowningglory.items.Crowns;
 import chronosacaria.crowningglory.registry.CrownsRegistry;
 import net.minecraft.block.*;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -37,24 +36,46 @@ public class CrownEffects {
                     Blocks.CORNFLOWER, Blocks.LILY_OF_THE_VALLEY, Blocks.SUNFLOWER,
                     Blocks.LILAC, Blocks.ROSE_BUSH, Blocks.PEONY);
 
-    public static void applyAzuresAdvantageousAdornmentEffect(LivingEntity livingEntity){
-        if (livingEntity != null) {
+    public static void applyAzuresAdvantageousAdornmentEffect(PlayerEntity playerEntity){
+        if (playerEntity != null) {
             if (!config.enableCrownEffects.get(AZURES_ADVANTAGEOUS_ADORNMENT))
                 return;
 
-            if (!(livingEntity instanceof PlayerEntity)) return;
-
-            World world = livingEntity.getEntityWorld();
+            World world = playerEntity.getEntityWorld();
 
             StatusEffectInstance luck = new StatusEffectInstance(StatusEffects.LUCK, 42, 2,
                     false, false);
 
-            ItemStack helmetStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
+            ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
-            if (livingEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.AZURE)) {
+            if (playerEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.AZURE)) {
                 if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AZURE).get(EquipmentSlot.HEAD).asItem()) {
-                    livingEntity.addStatusEffect(luck);
+                    playerEntity.addStatusEffect(luck);
                 }
+            }
+        }
+    }
+
+    public static void applyFlightEffect(PlayerEntity playerEntity){
+
+        if (!config.enableCrownEffects.get(VALKYRIES_FLIGHT))
+            return;
+
+        ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
+        boolean flying = playerEntity.getAbilities().flying;
+
+        if (playerEntity.isAlive() && config.enableCrownsRegistration.get(Crowns.VALKYRIE)){
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.VALKYRIE).get(EquipmentSlot.HEAD).asItem()){
+                playerEntity.getAbilities().allowFlying = true;
+
+                if (flying && playerEntity.getRandom().nextFloat() < 0.1f){
+                    helmetStack.damage(1, playerEntity, e -> e.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                }
+            }
+            else {
+                playerEntity.getAbilities().allowFlying = false;
+                playerEntity.getAbilities().flying = false;
+                playerEntity.sendAbilitiesUpdate();
             }
         }
     }

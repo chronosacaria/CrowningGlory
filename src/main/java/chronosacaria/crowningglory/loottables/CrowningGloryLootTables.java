@@ -28,6 +28,11 @@ public class CrowningGloryLootTables {
                     SIMPLE_DUNGEON_CHEST, WOODLAND_MANSION_CHEST
             )));
 
+    public static final Collection<Identifier> CATSEYE_CROWN_LOOT_TABLE =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                    SIMPLE_DUNGEON_CHEST, JUNGLE_TEMPLE_CHEST
+            )));
+
     public static final Collection<Identifier> DIAMOND_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST
@@ -53,6 +58,11 @@ public class CrowningGloryLootTables {
                     NETHER_BRIDGE_CHEST, RUINED_PORTAL_CHEST
             )));
 
+    public static final Collection<Identifier> VALKYRIE_CROWN_LOOT_TABLE =
+            Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+                    SIMPLE_DUNGEON_CHEST, STRONGHOLD_LIBRARY_CHEST
+            )));
+
     public static final Collection<Identifier> WREATH_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, ABANDONED_MINESHAFT_CHEST, VILLAGE_ARMORER_CHEST
@@ -74,6 +84,10 @@ public class CrowningGloryLootTables {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.AZURE, config.crownsSpawnRate.get(Crowns.AZURE));
                 supplier.pool(poolBuilder);
+            } else if (CATSEYE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.CATSEYE) && config.enableCrownsRegistration.get(Crowns.CATSEYE)) {
+                poolBuilder = FabricLootPoolBuilder.builder();
+                addCrown(poolBuilder, Crowns.CATSEYE, config.crownsSpawnRate.get(Crowns.CATSEYE));
+                supplier.pool(poolBuilder);
             } else if (DIAMOND_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.DIAMOND) && config.enableCrownsRegistration.get(Crowns.DIAMOND)){
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.DIAMOND, config.crownsSpawnRate.get(Crowns.DIAMOND));
@@ -93,6 +107,10 @@ public class CrowningGloryLootTables {
             } else if (RUBY_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.RUBY) && config.enableCrownsRegistration.get(Crowns.RUBY)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
                 addCrown(poolBuilder, Crowns.RUBY, config.crownsSpawnRate.get(Crowns.RUBY));
+                supplier.pool(poolBuilder);
+            } else if (VALKYRIE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.VALKYRIE) && config.enableCrownsRegistration.get(Crowns.VALKYRIE)) {
+                poolBuilder = FabricLootPoolBuilder.builder();
+                addCrown(poolBuilder, Crowns.VALKYRIE, config.crownsSpawnRate.get(Crowns.VALKYRIE));
                 supplier.pool(poolBuilder);
             } else if (WREATH_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.WREATH) && config.enableCrownsRegistration.get(Crowns.WREATH)) {
                 poolBuilder = FabricLootPoolBuilder.builder();

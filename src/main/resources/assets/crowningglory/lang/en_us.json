@@ -85,6 +85,18 @@
   "item.crowningglory.ruby_crown.moreinfo.tooltip_4":             " ",
   "item.crowningglory.ruby_crown.moreinfo.tooltip_5":             " ",
 
+  "item.crowningglory.valkyrie_crown":                            "Valkyrie Laurel",
+  "item.crowningglory.valkyrie_crown.tooltip_1":                  "While wearing this laurel you feel light",
+  "item.crowningglory.valkyrie_crown.tooltip_2":                  "as a feather. You feel like you could even",
+  "item.crowningglory.valkyrie_crown.tooltip_3":                  "drift away if you aren't careful.",
+  "item.crowningglory.valkyrie_crown.tooltip_4":                  " ",
+  "item.crowningglory.valkyrie_crown.tooltip_5":                  "Hold [SHIFT] for more information.",
+  "item.crowningglory.valkyrie_crown.moreinfo.tooltip_1":         "While wearing this laurel you can",
+  "item.crowningglory.valkyrie_crown.moreinfo.tooltip_2":         "can fly around like in creative mode.",
+  "item.crowningglory.valkyrie_crown.moreinfo.tooltip_3":         "Be careful, though: you lose durability",
+  "item.crowningglory.valkyrie_crown.moreinfo.tooltip_4":         "on the laurel as you fly. If it breaks,",
+  "item.crowningglory.valkyrie_crown.moreinfo.tooltip_5":         "you fall.",
+
   "item.crowningglory.wreath_crown":                              "Wreath Crown",
   "item.crowningglory.wreath_crown.tooltip_1":                    "While wearing this crown you are certain",
   "item.crowningglory.wreath_crown.tooltip_2":                    "that you are gifted with a verdant mind.",

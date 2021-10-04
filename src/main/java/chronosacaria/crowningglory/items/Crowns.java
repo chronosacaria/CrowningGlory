@@ -65,6 +65,12 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_DIAMOND,
             () -> {return Ingredient.ofItems(Items.BLAZE_POWDER);
     }),
+    VALKYRIE("valkyrielaurel", "valkyrie",
+            40,
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.FEATHER);
+    }),
     WREATH("wreathcrown", "wreath",
             40,
             25,
@@ -96,7 +102,13 @@ public enum Crowns implements ArmorMaterial {
 
     public Rarity getRarity(){
         switch (this){
+            case AZURE:
+            case VALKYRIE:
+                return Rarity.EPIC;
+            case AQUAMARINE:
+            case CATSEYE:
             case DIAMOND:
+            case ENDER:
             case FROST:
             case RUBY:
                 return Rarity.RARE;
