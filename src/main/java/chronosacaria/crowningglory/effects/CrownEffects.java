@@ -62,20 +62,21 @@ public class CrownEffects {
             return;
 
         ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
-        boolean flying = playerEntity.getAbilities().flying;
+        if (!playerEntity.getAbilities().creativeMode){
+            boolean flying = playerEntity.getAbilities().flying;
 
-        if (playerEntity.isAlive() && config.enableCrownsRegistration.get(Crowns.VALKYRIE)){
-            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.VALKYRIE).get(EquipmentSlot.HEAD).asItem()){
-                playerEntity.getAbilities().allowFlying = true;
+            if (playerEntity.isAlive() && config.enableCrownsRegistration.get(Crowns.VALKYRIE)) {
+                if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.VALKYRIE).get(EquipmentSlot.HEAD).asItem()) {
+                    playerEntity.getAbilities().allowFlying = true;
 
-                if (flying && playerEntity.getRandom().nextFloat() < 0.1f){
-                    helmetStack.damage(1, playerEntity, e -> e.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                    if (flying && playerEntity.getRandom().nextFloat() < 0.1f) {
+                        helmetStack.damage(1, playerEntity, e -> e.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                    }
+                } else {
+                    playerEntity.getAbilities().allowFlying = false;
+                    playerEntity.getAbilities().flying = false;
+                    playerEntity.sendAbilitiesUpdate();
                 }
-            }
-            else {
-                playerEntity.getAbilities().allowFlying = false;
-                playerEntity.getAbilities().flying = false;
-                playerEntity.sendAbilitiesUpdate();
             }
         }
     }
