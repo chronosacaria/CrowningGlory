@@ -14,9 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LivingEntityMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void crownTickEffects(CallbackInfo ci){
-        if(!((Object)this instanceof PlayerEntity)) return;
-
-        PlayerEntity playerEntity = (PlayerEntity) (Object) this;
+        if(!((Object) this instanceof PlayerEntity playerEntity)) return;
 
         CrownEffects.applyAzuresAdvantageousAdornmentEffect(playerEntity);
         CrownEffects.applyFlightEffect(playerEntity);
@@ -31,9 +29,7 @@ public class LivingEntityMixin {
     private void voidTeleportationProtectionDamageProtection(DamageSource source, float amount,
                                                              CallbackInfoReturnable<Boolean> cir){
 
-        if(!((Object)this instanceof PlayerEntity)) return;
-
-        PlayerEntity playerEntity = (PlayerEntity) (Object) this;
+        if(!((Object) this instanceof PlayerEntity playerEntity)) return;
 
         CrownEffects.voidProtectionTeleportEffect(playerEntity);
     }
