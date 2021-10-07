@@ -272,10 +272,10 @@ public class CrownEffects {
 
         World world = playerEntity.getEntityWorld();
 
-        if (playerEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
+        if (playerEntity.isAlive() && world.getTime() % 40 == 0 && config.enableCrownsRegistration.get(Crowns.PRISMARINE)) {
             ItemStack helmetStack = playerEntity.getEquippedStack(EquipmentSlot.HEAD);
 
-            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AQUAMARINE).get(EquipmentSlot.HEAD).asItem()) {
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.PRISMARINE).get(EquipmentSlot.HEAD).asItem()) {
                 StatusEffectInstance waterBreathing = new StatusEffectInstance(StatusEffects.WATER_BREATHING, 42, 0,
                         false, false);
                 playerEntity.addStatusEffect(waterBreathing);

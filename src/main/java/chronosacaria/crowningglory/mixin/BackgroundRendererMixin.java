@@ -46,9 +46,9 @@ public class BackgroundRendererMixin {
         if (!config.enableCrownEffects.get(WATER_VISION))
             return;
 
-        if (MinecraftClient.getInstance().player != null && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
+        if (MinecraftClient.getInstance().player != null && config.enableCrownsRegistration.get(Crowns.PRISMARINE)) {
             ItemStack helmetStack = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.HEAD);
-            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.AQUAMARINE).get(EquipmentSlot.HEAD).asItem()) {
+            if (helmetStack.getItem() == CrownsRegistry.crownItems.get(Crowns.PRISMARINE).get(EquipmentSlot.HEAD).asItem()) {
                 if (camera.getSubmersionType() == CameraSubmersionType.WATER) {
                     ci.cancel();
                 }

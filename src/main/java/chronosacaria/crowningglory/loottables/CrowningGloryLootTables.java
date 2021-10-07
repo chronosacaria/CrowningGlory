@@ -18,7 +18,7 @@ import static net.minecraft.loot.LootTables.*;
 
 public class CrowningGloryLootTables {
 
-    public static final Collection<Identifier> AQUAMARINE_CROWN_LOOT_TABLE =
+    public static final Collection<Identifier> PRISMARINE_CROWN_LOOT_TABLE =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
                     SIMPLE_DUNGEON_CHEST, SHIPWRECK_TREASURE_CHEST
             )));
@@ -76,9 +76,9 @@ public class CrowningGloryLootTables {
 
             FabricLootPoolBuilder poolBuilder;
 
-            if (AQUAMARINE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.AQUAMARINE) && config.enableCrownsRegistration.get(Crowns.AQUAMARINE)) {
+            if (PRISMARINE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.PRISMARINE) && config.enableCrownsRegistration.get(Crowns.PRISMARINE)) {
                 poolBuilder = FabricLootPoolBuilder.builder();
-                addCrown(poolBuilder, Crowns.AQUAMARINE, config.crownsSpawnRate.get(Crowns.AQUAMARINE));
+                addCrown(poolBuilder, Crowns.PRISMARINE, config.crownsSpawnRate.get(Crowns.PRISMARINE));
                 supplier.pool(poolBuilder);
             } else if (AZURE_CROWN_LOOT_TABLE.contains(id) && config.enableCrownSpawning.get(Crowns.AZURE) && config.enableCrownsRegistration.get(Crowns.AZURE)) {
                 poolBuilder = FabricLootPoolBuilder.builder();

@@ -17,11 +17,6 @@ import static net.minecraft.sound.SoundEvents.*;
 
 public enum Crowns implements ArmorMaterial {
 
-    AQUAMARINE("aquamarinecirclet", "aquamarine",
-            25,
-            ITEM_ARMOR_EQUIP_DIAMOND,
-            () -> {return Ingredient.ofItems(Items.PRISMARINE_SHARD);
-    }),
     AZURE("azuresadvantageousadornment", "azures",
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
@@ -52,6 +47,11 @@ public enum Crowns implements ArmorMaterial {
             ITEM_ARMOR_EQUIP_IRON,
             () -> {return Ingredient.ofItems(Items.BLUE_ICE);
     }),
+    PRISMARINE("prismarinecirclet", "prismarine",
+            25,
+            ITEM_ARMOR_EQUIP_DIAMOND,
+            () -> {return Ingredient.ofItems(Items.PRISMARINE_SHARD);
+            }),
     RUBY("rubydiadem", "ruby",
             25,
             ITEM_ARMOR_EQUIP_DIAMOND,
@@ -93,7 +93,7 @@ public enum Crowns implements ArmorMaterial {
             case AZURE:
             case VALKYRIE:
                 return Rarity.EPIC;
-            case AQUAMARINE:
+            case PRISMARINE:
             case CATSEYE:
             case DIAMOND:
             case ENDER:
